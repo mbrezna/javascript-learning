@@ -34,15 +34,26 @@
 
     <script>
       //scoreboard
-      let score = JSON.parse(localStorage.getItem('score'));
-      
-      if (score === null) {
-        score = {
+      let score = JSON.parse(localStorage.getItem('score')) || {
           wins: 0, 
           losses: 0,
           ties: 0
         };
+      //this takes an object from local storage OR generates new object (for first game)
+      /* it could be also written like this:
+
+      if (score === null) {
+        wins: 0, 
+        losses: 0,
+        ties: 0
       }
+      or shorter version:
+      if (!score) {
+        wins: 0, 
+        losses: 0,
+        ties: 0
+      }
+      */
 
       function pickComputerMove() {
         
