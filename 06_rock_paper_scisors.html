@@ -25,10 +25,28 @@
       playGame('scissors');
     ">Scissors</button>
 
+    <button onclick = "
+      score.wins = 0;
+      score.losses = 0;
+      score.ties = 0;
+      localStorage.removeItem('score');
+    ">Reset score</button>
+
     <script>
+      //scoreboard
+      let score = JSON.parse(localStorage.getItem('score'));
+      
+      if (score === null) {
+        score = {
+          wins: 0, 
+          losses: 0,
+          ties: 0
+        };
+      }
+
       function pickComputerMove() {
         
-        //generating random number
+        //computer randomly selects a move
         const randomNumber = Math.random();
         let computerMove = '';
 
@@ -41,6 +59,7 @@
         } return computerMove;
       }
 
+      //compares moves to get result
       function playGame(playerMove) {
         const computerMove = pickComputerMove();
 
@@ -73,7 +92,21 @@
           }
         }
 
-        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}`);
+        //updates scoreboard
+        if (result === 'You win!') {
+          score.wins += 1;
+        } else if (result === 'Computer wins.') { 
+          score.losses += 1;
+        } else if (result === 'It\'s a tie.'){
+          score.ties += 1;
+        }
+
+        //LOCAL STORAGE
+        //saved an item
+        localStorage.setItem('score', JSON.stringify(score));
+
+        //displays result and score in a popup 
+        alert(`You picked ${playerMove}. Computer picked ${computerMove}. ${result}\nWins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`);
       }
     </script>
 	</body>
