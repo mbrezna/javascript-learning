@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+	<head></head>
+  <title>Heads and Tails</title>
+	<body>
+    <h1>Heads and tails</h1>
+    <script>
+      // CLASSIC IF STATEMENTS
+      const randomNumber = Math.random();
+      let result;
+      if (randomNumber < 0.5) {
+        result = 'heads';
+      } else {
+        result = 'tails';
+      }
+
+      const guess = 'heads'
+      // podmínka musí obsahovat tři rovnáse === !!!!
+      if (guess === result) {
+        console.log('You win!')
+      } else {
+        console.log('You lose!')
+      }
+      
+      // USING TERNARY OPERATORS
+      const randomNumber = Math.random();
+      let result = randomNumber < 0.5 ? 'heads' : 'tails';
+      console.log(result);
+
+      const guess = 'heads';
+      console.log(guess === result ? 'You win!' : 'You lose!');
+    </script>
+	</body>
+</html>
