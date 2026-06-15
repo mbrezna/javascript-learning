@@ -1,17 +1,28 @@
 <!doctype html>
 <html lang="en">
-	<head></head>
+  <head></head>
   <title>Heads and Tails</title>
-	<body>
-    <h1>Heads and tails</h1>
+  <body>
+    <h1>Heads and tails game</h1>
+    <button onclick="playGame('heads')">HEADS</button>
+    <button onclick="playGame('tails')">TAILS</button>
+    <button
+      onclick="
+        score.wins = 0;
+        score.losses = 0;
+        localStorage.removeItem('score');
+      ">
+      RESET SCORE
+    </button>
     <script>
       // CLASSIC IF STATEMENTS
+      /*
       const randomNumber = Math.random();
       let result;
       if (randomNumber < 0.5) {
         result = 'heads';
       } else {
-        result = 'tails';
+        result = 'tails';ß
       }
 
       const guess = 'heads'
@@ -21,14 +32,31 @@
       } else {
         console.log('You lose!')
       }
-      
-      // USING TERNARY OPERATORS
-      const randomNumber = Math.random();
-      let result = randomNumber < 0.5 ? 'heads' : 'tails';
-      console.log(result);
+      */
 
-      const guess = 'heads';
-      console.log(guess === result ? 'You win!' : 'You lose!');
+      const score = JSON.parse(localStorage.getItem("score")) || {
+        wins: 0,
+        losses: 0,
+      };
+
+      function playGame(guess) {
+        const randomNumber = Math.random();
+        const result = randomNumber < 0.5 ? "heads" : "tails";
+
+        if (guess === result) {
+          score.wins++;
+          alert(
+            `You vote for ${guess}. It\'s a ${result}. You win! \nWins: ${score.wins}, Losses:${score.losses}`,
+          );
+        } else {
+          score.losses++;
+          alert(
+            `You vote for ${guess}. It\'s a ${result}. You lose! \nWins: ${score.wins}, Losses: ${score.losses}`,
+          );
+        }
+
+        localStorage.setItem("score", JSON.stringify(score));
+      }
     </script>
-	</body>
+  </body>
 </html>
