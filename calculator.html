@@ -6,6 +6,8 @@
     <title>Calculator</title>
   </head>
   <body>
+    <p class="js-calculation"></p>
+
     <p>
       <button onclick="updateCalculation('1')">1</button>
 
@@ -42,11 +44,7 @@
       <button onclick="updateCalculation('.')">.</button>
 
       <button
-        onclick="
-          calculation = eval(calculation);
-          console.log(calculation);
-          localStorage.setItem('calculation', calculation);
-        ">
+        onclick="evaluation()">
         =
       </button>
 
@@ -55,11 +53,7 @@
 
     <p>
       <button
-        onclick="
-          calculation = '';
-          console.log('Cleared');
-          localStorage.setItem('calculation', calculation);
-        ">
+        onclick="clearCalculation()">
         Clear
       </button>
     </p>
@@ -67,10 +61,28 @@
     <script>
       let calculation = localStorage.getItem("calculation") || "";
 
+      displayCalculation();
+
       function updateCalculation(value) {
         calculation += value;
-        console.log(calculation);
+        displayCalculation();
         localStorage.setItem("calculation", calculation);
+      }
+
+      function displayCalculation() {
+        document.querySelector('.js-calculation').innerHTML = calculation;
+      }
+      function clearCalculation() {
+        calculation = '';
+        console.log('Cleared');
+        displayCalculation();
+        localStorage.setItem('calculation', calculation);
+      }
+
+      function evaluation() {
+        calculation = eval(calculation);
+        displayCalculation();
+        localStorage.setItem('calculation', calculation);
       }
     </script>
   </body>

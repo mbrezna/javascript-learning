@@ -13,6 +13,9 @@
     <button onclick="calculateShipping(event)">Calculate</button>
     <p class="js-total-cost"></p>
 
+    <p>Typer</p>
+    <input onkeyup="typerOnkeyup()" class="js-input">
+    <p class="js-typer"></p>
     <script>
       function subscribe() {
         const buttonElem = document.querySelector(".js-subscribe-button");
@@ -26,14 +29,14 @@
 
       function calculateShipping() {
         const inputElem = document.querySelector('.js-cost-input');
-        let cost = Number(inputElem.value);
+        let cost = Number(inputElem.value) * 100;
 
-        if (cost < 40) {
-          cost = cost + 10;
+        if (cost < 4000) {
+          cost = cost + 1000;
         }
 
         document.querySelector('.js-total-cost')
-          .innerHTML = `$${cost}`;
+          .innerHTML = `$${cost / 100}`;
       }
 
       function handleCostKeydown(event) {
@@ -41,6 +44,12 @@
           calculateShipping();
         }
       }
+
+      function typerOnkeyup() {
+        const inputElem = document.querySelector('.js-input');
+        document.querySelector('.js-typer').innerHTML = inputElem.value;
+      }
+
     </script>
   </body>
 </html>

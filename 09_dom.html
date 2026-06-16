@@ -7,6 +7,9 @@
   <body>
     <button>hello</button>
     <button class="js-button">second button</button>
+    <input placeholder="Name" class="js-input" onkeydown="enteringKeydown(event)">
+    <button class="js-submit" onclick="displayInput()" >Submit</button>
+    <p class="js-name"></p>
     <script>
       /*
       document.body.innerHTML = "hello";
@@ -22,13 +25,28 @@
 
       console.log(document.body.innerHTML);
       document.body.innerHTML = "<button>Good job!</button>";
-      */
+      
 
       console.log(document.querySelector("button").innerHTML);
       document.querySelector("button").innerHTML = "changed";
 
       const buttonElement = document.querySelector(".js-button");
       console.log(buttonElement);
+      */
+
+
+      document.querySelector('.js-submit').innerHTML 
+
+      function displayInput() {
+        const nameElem = document.querySelector('.js-input').value;
+        document.querySelector('.js-name').innerHTML = `Your name is: ${nameElem}.`
+      }
+
+      function enteringKeydown(event) {
+        if (event.key === 'Enter') {
+          displayInput();
+        }
+      }
     </script>
   </body>
 </html>
