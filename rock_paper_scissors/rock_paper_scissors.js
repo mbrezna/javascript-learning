@@ -1,49 +1,5 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width initial-scale=1" />
-    <title>Rock Paper Scissors!</title>
-    <style></style>
-  </head>
-  <body>
-    <h1>Rock Paper Scissors!</h1>
-
-    <!--ROCK-->
-    <button onclick="playGame('rock')">Rock</button>
-
-    <!--PAPER-->
-    <button onclick="playGame('paper')">Paper</button>
-
-    <!--SCISSORS-->
-    <button onclick="playGame('scissors')">Scissors</button>
-
-    <p class="js-result"></p>
-
-    <p class="js-moves"></p>
-
-    <p class="js-score"></p>
-
-    <button
-      onclick="
-        score.wins = 0;
-        score.losses = 0;
-        score.ties = 0;
-
-        localStorage.removeItem('score');
-
-        updateScoreElement();
-
-        document.querySelector('.js-moves')
-          .innerHTML = '';
-        document.querySelector('.js-result')
-          .innerHTML = '';
-      ">
-      Reset score
-    </button>
-
-    <script>
-      //scoreboard
+//scoreboard
+        //this takes an object from local storage OR generates new object (for first game)
       let score = JSON.parse(localStorage.getItem("score")) || {
         wins: 0,
         losses: 0,
@@ -51,22 +7,6 @@
       };
 
       updateScoreElement();
-
-      //this takes an object from local storage OR generates new object (for first game)
-      /* it could be also written like this:
-
-      if (score === null) {
-        wins: 0, 
-        losses: 0,
-        ties: 0
-      }
-      or shorter version:
-      if (!score) {
-        wins: 0, 
-        losses: 0,
-        ties: 0
-      }
-      */
 
       function pickComputerMove() {
         //computer randomly selects a move
@@ -130,7 +70,8 @@
         updateScoreElement();
 
         document.querySelector('.js-moves')
-          .innerHTML = `You picked ${playerMove}. Computer picked ${computerMove}.`;
+          .innerHTML = `You <img class="move-icon" src="../images/${playerMove}-emoji.png">
+          <img class="move-icon" src="../images/${computerMove}-emoji.png">Computer`;
 
         document.querySelector('.js-result')
           .innerHTML = `${result}`;
@@ -140,6 +81,18 @@
         document.querySelector(".js-score")
           .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
       }
-    </script>
-  </body>
-</html>
+
+      function resetScore() {
+        score.wins = 0;
+        score.losses = 0;
+        score.ties = 0;
+
+        localStorage.removeItem('score');
+
+        updateScoreElement();
+
+        document.querySelector('.js-moves')
+          .innerHTML = '';
+        document.querySelector('.js-result')
+          .innerHTML = 'Pick your move';
+      }
