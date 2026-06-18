@@ -4,43 +4,67 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width initial-scale=1" />
 		<title>Cart</title>
+    <style>
+      body {
+        font-size: 20px;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+      .btn {
+        font-size: 15px;
+        background-color: rgb(210, 210, 210);
+        border: none;
+        padding: 7px 10px;
+        border-radius: 20px;
+      }
+
+      .add-to-cart-btn {
+        font-size: 15px;
+        background-color: rgb(255, 216, 20);
+        border: none;
+        padding: 7px 40px;
+        border-radius: 20px;
+      }
+      
+      .js-reset-btn {
+
+      }
+    </style>
 	</head>
 	<body>
-    <button onclick="
+    <button class="btn" onclick="
       console.log(`Cart quantity: ${cartQuantity}`);
     "> Show quantity </button>
     
-    <button onclick=" updateCartQuantity(1)
+    <button class="add-to-cart-btn" onclick=" updateCartQuantity(1)
     "> Add to cart </button>
 
-    <button onclick="updateCartQuantity(2)
+    <button class="btn" onclick="updateCartQuantity(2)
     "> +2 </button>
 
-    <button onclick="updateCartQuantity(3)
+    <button class="btn" onclick="updateCartQuantity(3)
     "> +3 </button> 
 
-    <button onclick="updateCartQuantity(4)
+    <button class="btn" onclick="updateCartQuantity(4)
     "> +4 </button> 
 
-    <button onclick="updateCartQuantity(5)
+    <button class="btn" onclick="updateCartQuantity(5)
     "> +5 </button> 
 
-    <button onclick="updateCartQuantity(-1)
+    <button class="btn" onclick="updateCartQuantity(-1)
     "> -1 </button> 
 
-    <button onclick="updateCartQuantity(-2)
+    <button class="btn" onclick="updateCartQuantity(-2)
     "> -2 </button> 
 
-    <button onclick="updateCartQuantity(-3)
+    <button class="btn" onclick="updateCartQuantity(-3)
     "> -3 </button> 
 
-    <button onclick="
-      cartQuantity = 0;
-      console.log('Cart was reset.')
-      console.log(`Cart quantity: ${cartQuantity}`);
-    "> Reset cart </button> 
+    <button class="btn js-reset-btn" onclick="resetCart()"> Reset cart </button> 
 
     <p class="js-quantity-display"></p>
+    <p class="js-reset-notify"></p>
 
     <script>
       let cartQuantity = 0;
@@ -62,6 +86,12 @@
       }
 
       function displayQuantity() {
+        document.querySelector('.js-quantity-display').innerHTML = `Cart quantity: ${cartQuantity}`;
+      }
+
+      function resetCart() {
+        cartQuantity = 0;
+        alert('Cart was reset.')
         document.querySelector('.js-quantity-display').innerHTML = `Cart quantity: ${cartQuantity}`;
       }
     </script>

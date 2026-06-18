@@ -40,6 +40,14 @@
         cursor: pointer;
         border-radius: 4px;
       }
+
+      .warning {
+        color: red;
+      }
+
+      .free {
+        color: green;
+      }
     </style>
   </head>
   <body>
@@ -71,12 +79,22 @@
         const inputElem = document.querySelector('.js-cost-input');
         let cost = Number(inputElem.value) * 100;
 
-        if (cost < 4000) {
+        const message = document.querySelector('.js-total-cost')
+        message.innerHTML = '';
+        
+        if (cost < 0) {
+          message.innerHTML = `Error: cost cannot be less then $0`
+          message.classList.add('warning');
+          return;
+        } else if (cost < 4000) {
           cost = cost + 1000;
+          message.innerHTML = `Shipping: 10$,
+          Price: $${cost / 100}`;
+          return;
+        } else {
+          message.innerHTML = 'Free shipping';
+          message.classList.add('free');
         }
-
-        document.querySelector('.js-total-cost')
-          .innerHTML = `$${cost / 100}`;
       }
 
       function handleCostKeydown(event) {
