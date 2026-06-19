@@ -36,3 +36,13 @@ button {
   font-size: 25px;
   min-height: 30px;
 }
+
+.js-extra-calculation {
+  font-size: 80px;
+  color:#ffc8dd;
+}
+
+.backspace {
+  width: 30px;
+  padding-top: 4px;
+}
