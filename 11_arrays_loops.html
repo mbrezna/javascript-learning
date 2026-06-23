@@ -64,7 +64,7 @@
         const value = todoList[index];
         console.log(value);
       }
-      */
+      
 
       const nums = [1, 1, 3];
 
@@ -85,6 +85,167 @@
         numsDoubled.push(num * 2);
       }
       console.log(numsDoubled);
+      */
+
+      //UKOLY
+      //11a
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+      console.log(nums);
+
+      //11b 
+      function getLastValue(array) {
+        return array.splice(array.length - 1, 1);
+      }
+      //1b testing
+      console.log(getLastValue(nums));
+      console.log(getLastValue([20, 34, 55, 63, 45]));
+      console.log(getLastValue(['ahoj', 'čau', 'nazdar', 'zduř']));
+
+      //11c
+      function arraySwap(array) {
+        /* 
+        const newArray = [];
+        newArray[0] = array[array.length - 1];
+        for (let i = 1; i < array.length - 1; i++) {
+          newArray.push(array[i]);
+        }
+        newArray.push(array[0])
+        console.log(newArray);
+        */
+
+        const lastIndex = array.length - 1;
+        const last = array[lastIndex];
+        const first = array[0];
+        array[0] = last;
+        array[lastIndex] = first;
+        console.log(array);
+      }
+      //11c testing
+      arraySwap([10, 20, 5, 7, 3, 17, 34, 546]);
+      arraySwap(['ahoj', 'čau', 'nazdar', 'zduř'])
+      
+      /*
+      //11d
+      for (i = 0; i <= 10; i += 2) {
+        console.log(i);
+      }
+
+      //11e
+      for (i = 5; i >= 0; i--) {
+        console.log(i);
+      }
+      */
+     
+      //11f
+      let i = 0;
+      while (i <=10) {
+        console.log(i);
+        i += 2;
+      }
+
+      i = 5;
+      while (i >= 0) {
+        console.log(i);
+        i--;
+      }
+
+      //11g+h
+      function increaseArray(array) {
+        const result = [];
+
+        for (let i = 0; i < array.length; i++) {
+          result.push(array[i] + 1);
+        }
+
+        return result;
+      }
+      increaseArray([3, 5, 10]);
+      increaseArray([-1, -4, 0, 99]);
+
+      const arrayA = [3, 5, 10];
+      console.log(increaseArray(arrayA));
+      console.log(increaseArray(arrayA));
+
+      //11i
+      function addNumber(array, number) {
+        const newArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(array[i] + number);
+        }
+        return newArray;
+      }
+      //11i testing
+      console.log(addNumber([5, 4, 10], 3));
+      console.log(addNumber([-2, -1, 0, 99], 2));
+      
+      //11j
+      function combineArrays(array1, array2) {
+        const newArray = [];
+        for (let i = 0; i < array1.length; i++) {
+          newArray.push(array1[i] + array2[i]);
+        }
+        return newArray;
+      }
+      //11j testing
+      console.log(combineArrays([1, 2, 3], [10, 45, 52]));
+      console.log(combineArrays([1, 2, 3], [-2, -35, 55]));
+
+      //11k
+      function countPositive(array) {
+        let result = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] > 0) {
+            result ++;
+          }
+        }
+        return result;
+      }
+      //11k testing
+      console.log(countPositive([1, -5, -4, 10, 25, -7, -3]));
+
+      //11l+m
+      function minMax(array) {
+        if (array.length === 0) return { min: null, max: null };
+
+        const result = {
+          min: array[0],
+          max: array[0]
+        };
+
+        for (let i = 1; i < array.length; i++) {
+          const value = array[i];
+          
+          if (value < result.min) result.min = value;
+          if (value > result.max) result.max = value;
+        }
+        return result;
+      }
+      //11l+m testing
+      console.log(minMax([10, 45, -3, 4, 3]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([2]));
+      console.log(minMax([]));
+
+      //11n
+      function countWords(array) {
+        const count = {};
+
+        for (let i = 0; i < array.length; i++) {
+          const variable = array[i];
+
+          if (!count[variable]) {
+            count[variable] = 1;
+          } else {
+            count[variable]++
+          }
+        }
+        return count;
+      }
+      //11n testing
+      console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape', 'banana']));
     </script>
   </body>
 </html>

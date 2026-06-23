@@ -1,37 +1,51 @@
-const todoList = ['ahoj'];
+const todoList = [{
+  name: 'was dishes',
+  dueDate: '2027-12-22'
+}, {
+  name: 'make dinner', 
+  dueDate: '2027-11-22'
+}];
 
 renderTodoList();
 
 function addTask() {
-  //access input element
-  const inputElement = document.querySelector('.js-name-input');
-  //get value from the input element and save it into a variable
-  const name = inputElement.value;
+  const nameInputElement = document.querySelector('.js-name-input');
+  const name = nameInputElement.value;
 
-  //add task on the list
-  todoList.push(name);
+  const dateInputElement = document.querySelector('.js-due-date-input');
+  const dueDate = dateInputElement.value;
 
-  //remove the written task pro the input element
-  inputElement.value = '';
+  todoList.push({
+    name,
+    dueDate
+  });
+
+  nameInputElement.value = '';
+  dateInputElement.value = '';
 
   renderTodoList();
 }
 
 function renderTodoList() {
-  //create variable for saving the result
   let todoListHTML = '';
 
-  //using accumulator pattern for looping through the todoList array
   for (let i = 0; i < todoList.length; i++) {
-    const todo = todoList[i];
+    const todoObject = todoList[i];
+    const { name, dueDate } = todoObject;
 
-    //create paragraph with each list item
-    const html = `<p>${todo}</p>`;
+    const html = `
+      <div>${name}</div>
+      <div>${dueDate}</div>
+      <button class="delete-task-button" onclick="deleteTask(${i})">Delete</button>
+    `;
 
-    //add every item result variable
     todoListHTML += html;
   }
 
-  //put result variable to the HTML
   document.querySelector('.js-todo-list').innerHTML = todoListHTML;
+}
+
+function deleteTask(index) {
+  todoList.splice(index, 1);
+  renderTodoList();
 }
