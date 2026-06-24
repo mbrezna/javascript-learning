@@ -394,6 +394,29 @@
         }
         
       }
+
+      //11w
+      function findIndex2(array, string) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === string) {
+            return i;
+          }
+        }
+        return -1;
+      }
+
+      function unique(array) {
+        const result = [];
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          if (findIndex2(result, word) === -1) {
+            result.push(word);
+          }
+        }
+        return result;
+      }
+      //11w testing:
+      console.log(unique(['jedna', 'dva', 'jedna', 'tri', 'dva', 'jedna', 'sest']));
     </script>
   </body>
 </html>
