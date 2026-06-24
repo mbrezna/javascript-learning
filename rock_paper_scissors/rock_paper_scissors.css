@@ -42,7 +42,7 @@ body {
         font-size: 15px;
       }
 
-      .reset-button {
+      .reset-button, .auto-play-button{
         background-color: white;
         border: none;
         border-radius: 20px;
@@ -51,3 +51,5 @@ body {
         margin-top: 15px;
         cursor: pointer;
       }
+
+      
