@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Arrays and loops</title>
+  </head>
+  <body>
+    <script>
+      /*
+      //ARRAYS
+      const myArray = [10, 20, 30];
+      console.log(myArray);
+
+      console.log(myArray[2]);
+
+      myArray[0] = 99;
+      console.log(myArray[0]);
+      console.log(myArray);
+
+      [1, 'hello', true, { name: 'socks'}];
+      console.log(typeof [1, 2]);
+
+      Array.isArray([1, 2]);
+      console.log(Array.isArray([1, 2]));
+
+      console.log(myArray.length);
+
+      myArray.push(100);
+      console.log(myArray);
+
+      myArray.splice(0, 1);
+      console.log(myArray);
+      */
+
+      //LOOPS
+      /*
+      let i = 1;
+      while (i <= 5) {
+        console.log(i);
+        i++;
+      }
+
+      for (let i = 1; i <=5; i++) {
+        console.log(i)
+      }
+
+      let randomNumber = 0;
+
+      while (randomNumber < 0.5) {
+        randomNumber = Math.random();
+      }
+      console.log(randomNumber);
+      */
+
+      /*
+      const todoList = [
+        'make dinner', 
+        'wash dishes', 
+        'watch youtube'
+      ];
+
+      //technique: looping through an array
+      for (let index = 0; index <= todoList.length - 1; index++) {
+        const value = todoList[index];
+        console.log(value);
+      }
+      
+
+      const nums = [1, 1, 3];
+
+      //cyklus s uložením do proměnné
+      let total = 0 
+
+      for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        total += num;
+      }
+      console.log(total);
+
+      //cyklus s uložení do pole
+      const numsDoubled = [];
+      
+      for (let i = 0; i < nums.length; i++) {
+        const num = nums[i];
+        numsDoubled.push(num * 2);
+      }
+      console.log(numsDoubled);
+      */
+      /*
+      //UKOLY
+      //11a
+      const nums = [10, 20, 30];
+      nums[2] = 99;
+      console.log(nums);
+
+      //11b 
+      function getLastValue(array) {
+        return array.splice(array.length - 1, 1);
+      }
+      //1b testing
+      console.log(getLastValue(nums));
+      console.log(getLastValue([20, 34, 55, 63, 45]));
+      console.log(getLastValue(['ahoj', 'čau', 'nazdar', 'zduř']));
+
+      //11c
+      function arraySwap(array) {
+        /* 
+        const newArray = [];
+        newArray[0] = array[array.length - 1];
+        for (let i = 1; i < array.length - 1; i++) {
+          newArray.push(array[i]);
+        }
+        newArray.push(array[0])
+        console.log(newArray);
+        
+
+        const lastIndex = array.length - 1;
+        const last = array[lastIndex];
+        const first = array[0];
+        array[0] = last;
+        array[lastIndex] = first;
+        console.log(array);
+      }
+      //11c testing
+      arraySwap([10, 20, 5, 7, 3, 17, 34, 546]);
+      arraySwap(['ahoj', 'čau', 'nazdar', 'zduř'])
+      
+      
+      //11d
+      for (i = 0; i <= 10; i += 2) {
+        console.log(i);
+      }
+
+      //11e
+      for (i = 5; i >= 0; i--) {
+        console.log(i);
+      }
+      
+      */
+      /*
+      //11f
+      let i = 0;
+      while (i <=10) {
+        console.log(i);
+        i += 2;
+      }
+
+      i = 5;
+      while (i >= 0) {
+        console.log(i);
+        i--;
+      }
+
+      //11g+h
+      function increaseArray(array) {
+        const result = [];
+
+        for (let i = 0; i < array.length; i++) {
+          result.push(array[i] + 1);
+        }
+
+        return result;
+      }
+      increaseArray([3, 5, 10]);
+      increaseArray([-1, -4, 0, 99]);
+
+      const arrayA = [3, 5, 10];
+      console.log(increaseArray(arrayA));
+      console.log(increaseArray(arrayA));
+
+      //11i
+      function addNumber(array, number) {
+        const newArray = [];
+
+        for (let i = 0; i < array.length; i++) {
+          newArray.push(array[i] + number);
+        }
+        return newArray;
+      }
+      //11i testing
+      console.log(addNumber([5, 4, 10], 3));
+      console.log(addNumber([-2, -1, 0, 99], 2));
+      
+      //11j
+      function combineArrays(array1, array2) {
+        const newArray = [];
+        for (let i = 0; i < array1.length; i++) {
+          newArray.push(array1[i] + array2[i]);
+        }
+        return newArray;
+      }
+      //11j testing
+      console.log(combineArrays([1, 2, 3], [10, 45, 52]));
+      console.log(combineArrays([1, 2, 3], [-2, -35, 55]));
+
+      //11k
+      function countPositive(array) {
+        let result = 0;
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] > 0) {
+            result ++;
+          }
+        }
+        return result;
+      }
+      //11k testing
+      console.log(countPositive([1, -5, -4, 10, 25, -7, -3]));
+
+      //11l+m
+      function minMax(array) {
+        if (array.length === 0) return { min: null, max: null };
+
+        const result = {
+          min: array[0],
+          max: array[0]
+        };
+
+        for (let i = 1; i < array.length; i++) {
+          const value = array[i];
+          
+          if (value < result.min) result.min = value;
+          if (value > result.max) result.max = value;
+        }
+        return result;
+      }
+      //11l+m testing
+      console.log(minMax([10, 45, -3, 4, 3]));
+      console.log(minMax([-2, 3, -5, 7, 10]));
+      console.log(minMax([1, -3, 5]));
+      console.log(minMax([2]));
+      console.log(minMax([]));
+
+      //11n
+      function countWords(array) {
+        const count = {};
+
+        for (let i = 0; i < array.length; i++) {
+          const variable = array[i];
+
+          if (!count[variable]) {
+            count[variable] = 1;
+          } else {
+            count[variable]++
+          }
+        }
+        return count;
+      }
+      //11n testing
+      console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape', 'banana']));
+      
+
+      const array1 = [1, 2, 3];
+      const array2 = array1.slice();
+      array2.push(4);
+      console.log(array1);
+      console.log(array2);
+
+      const array3 = [1, 2, 3];
+      //destructuring:
+      const [firstValue, secondValue] = array3;
+      console.log(firstValue);
+      console.log(secondValue);
+
+      //break:
+      for (let i = 1; i <= 10; i++) {
+        if (i % 3 === 0) {
+        continue;
+        }
+        console.log(i);
+        if (i === 8) {
+          break;
+        }
+      }
+
+      let i = 1
+      while (i <= 10) {
+        if (i % 3 === 0) {
+          i++;
+          continue;
+        }
+        console.log(i);
+        i++;
+      }
+      
+      function doubleArray(nums) {
+        const numsDoubled = [];
+        
+        for (let i = 0; i < nums.length; i++) {
+          const num = nums[i];
+          if (num === 0) {
+            return numsDoubled;
+          }
+          numsDoubled.push(num * 2);
+        }
+        return numsDoubled;
+      }
+
+      console.log(doubleArray([1, 1, 3, 3, 5]));
+      */
+
+      //11o+p+q
+      function findIndex(array, string) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === string) {
+            return i;
+          }
+        }
+        return -1;
+      }
+      //11o+p+q testing:
+      console.log(findIndex(['ahoj', 'zdar', 'čau', 'nazdar', 'zduř'], 'zduř'));
+      console.log(findIndex(['ahoj', 'zdar', 'čau', 'nazdar', 'zdarec'], 'zduř'));
+      console.log(findIndex(['ahoj', 'zduř', 'čau', 'nazdar', 'zduř'], 'zduř'));
+
+      //11r
+      function removeEgg(foods) {
+        const result = [];
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === 'egg') {
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+      //11r testing;
+      console.log(removeEgg(['egg', 'egg', 'egg', 'cheese', 'bábovka', 'egg']));
+
+      //11s
+      function removeEgg2(foods) {
+        const result = [];
+        let eggsRemoved = 0;
+
+        for (let i = 0; i < foods.length; i++) {
+          if (foods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(foods[i]);
+        }
+        return result;
+      }
+      //11s testing:
+      console.log(removeEgg2(['egg', 'egg', 'egg', 'cheese', 'bábovka', 'egg']));
+
+      //11t
+      function removeEgg3(foods) {
+        const result = [];
+        let eggsRemoved = 0;
+        const reversedFoods = foods.reverse();
+
+        for (let i = 0; i < reversedFoods.length; i++) {
+          if (reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(reversedFoods[i]);
+        }
+        return result.reverse();
+      }
+      //11t testing:
+      console.log(removeEgg3(['egg', 'egg', 'egg', 'cheese', 'bábovka', 'egg']));
+
+      const array1 = ['egg', 'egg', 'egg', 'cheese', 'bábovka', 'egg'];
+      console.log(array1.reverse());
+
+      //11u
+      function removeEgg4(foods) {
+        const result = [];
+        let eggsRemoved = 0;
+        const foodsCopy = foods.slice();
+        const reversedFoods = foodsCopy.reverse();
+
+        for (let i = 0; i < reversedFoods.length; i++) {
+          if (reversedFoods[i] === 'egg' && eggsRemoved < 2) {
+            eggsRemoved++;
+            continue;
+          }
+          result.push(reversedFoods[i]);
+        }
+        return result.reverse();
+      }
+
+      //11v
+      for (let i = 1; i <= 20; i++) {
+        if (i % 3 === 0 && i % 5 === 0) {
+          console.log('FizzBuzz') 
+        } else if (i % 3 === 0) {
+          console.log('Fizz');
+        } else if (i % 5 === 0) {
+          console.log('Buzz');
+        } else {
+          console.log(i);
+        }
+        
+      }
+
+      //11w
+      function findIndex2(array, string) {
+        for (let i = 0; i < array.length; i++) {
+          if (array[i] === string) {
+            return i;
+          }
+        }
+        return -1;
+      }
+
+      function unique(array) {
+        const result = [];
+        for (let i = 0; i < array.length; i++) {
+          const word = array[i];
+          if (findIndex2(result, word) === -1) {
+            result.push(word);
+          }
+        }
+        return result;
+      }
+      //11w testing:
+      console.log(unique(['jedna', 'dva', 'jedna', 'tri', 'dva', 'jedna', 'sest']));
+    </script>
+  </body>
+</html>

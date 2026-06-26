@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CSS with JS</title>
+    <style>
+      .btn {
+        font-size: 15px;
+        margin-top: 20px;
+        color: black;
+        background-color: rgb(220, 220, 220);
+        border: none;
+        cursor: pointer;
+        border-radius: 20px;
+        padding: 4px 15px;
+      }
+
+      .is-toggled {
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <button class="js-button" onclick="">test</button>
+    </div>
+
+    <div>
+      <button class="btn js-btn1 is-toggled" onclick="onOffButton(1)">Gaming</button>
+      <button class="btn js-btn2 is-toggled" onclick="onOffButton(2)">Music</button>
+      <button class="btn js-btn3 is-toggled" onclick="onOffButton(3)">Tech</button>
+    </div>
+
+    <div>
+      <button class="btn js-btn4 is-toggled" onclick="toggleOneButton(4)">Gaming</button>
+      <button class="btn js-btn5 is-toggled" onclick="toggleOneButton(5)">Music</button>
+      <button class="btn js-btn6 is-toggled" onclick="toggleOneButton(6)">Tech</button>
+    </div>
+
+    <script>
+      const buttonElem = document.querySelector('.js-button');
+      console.log(buttonElem.classList.contains('js-button'));
+
+      function onOffButton(btnNumber) {
+        const gamingButton = document.querySelector(`.js-btn${btnNumber}`);
+        if (gamingButton.classList.contains('is-toggled')) {
+          gamingButton.classList.remove('is-toggled');
+        } else {
+          gamingButton.classList.add('is-toggled');
+        }
+      }
+
+      function toggleOneButton(btnNumber) {
+        const gamingButton = document.querySelector(`.js-btn${btnNumber}`);
+        if (!gamingButton.classList.contains('is-toggled')) {
+          togglePreviousButton();
+          gamingButton.classList.add('is-toggled');
+        } else {
+          gamingButton.classList.remove('is-toggled');
+        }
+      }
+
+      function togglePreviousButton() {
+        const previousBtns = document.querySelector('.is-toggled')
+        if (previousBtns) {
+          previousBtns.classList.remove('is-toggled');
+        }
+      }
+    </script>
+  </body>
+</html>
