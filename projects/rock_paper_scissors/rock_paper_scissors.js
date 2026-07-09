@@ -92,8 +92,8 @@ function playGame(playerMove) {
   updateScoreElement();
 
   document.querySelector('.js-moves')
-    .innerHTML = `You <img class="move-icon" src="../images/${playerMove}-emoji.png">
-    <img class="move-icon" src="../images/${computerMove}-emoji.png">Computer`;
+    .innerHTML = `You <img class="move-icon" src="../../images/${playerMove}-emoji.png">
+    <img class="move-icon" src="../../images/${computerMove}-emoji.png">Computer`;
 
   document.querySelector('.js-result')
     .innerHTML = `${result}`;
@@ -123,6 +123,9 @@ function resetScore() {
 let isAutoPlaying = false;
 let intervalID;
 
+const autoPlayBtnElem = document.querySelector('.js-auto-play-button');
+autoPlayBtnElem.addEventListener('click', autoPlay);
+
 function autoPlay() {
   if (!isAutoPlaying) {
     intervalID = setInterval(function () {
@@ -131,12 +134,15 @@ function autoPlay() {
     }, 500);
     isAutoPlaying = true;
 
-    //tady jsem chtěl změnit obsah tlačítka
-    //const button = document.querySelector('.js-auto-play-button')
-    //button.innerHTML = 'Stop playing';
+    //button change
+    autoPlayBtnElem.innerHTML = 'Stop playing';
+    autoPlayBtnElem.classList.add('stop-playing-button');
 
   } else {
     clearInterval(intervalID);
     isAutoPlaying = false;
+
+    autoPlayBtnElem.innerHTML = 'Auto Play';
+    autoPlayBtnElem.classList.remove('stop-playing-button');
   }
 }
