@@ -11,7 +11,7 @@ renderTodoList();
 document.querySelector('.js-add-task-button')
   .addEventListener('click', () => {
     addTask();
-  })
+  });
 
 function addTask() {
   const nameInputElement = document.querySelector('.js-name-input');

@@ -26,8 +26,12 @@ body {
   cursor: pointer;
 }
 
-.move-button:hover {
+.move-button:hover, .auto-play-button:hover, .no-confirmation-button:hover {
   background-color: rgb(150, 150, 150);
+}
+
+.reset-button:hover, .yes-confirmation-button:hover {
+  background-color: #c1121f;
 }
 
 .result {
@@ -42,7 +46,14 @@ body {
   font-size: 15px;
 }
 
-.reset-button, .auto-play-button{
+.info {
+  margin-top: 0px;
+  font-size: 13px;
+  font-style: italic;
+  font-weight: light;
+}
+
+.reset-button, .auto-play-button, .yes-confirmation-button, .no-confirmation-button {
   background-color: white;
   border: none;
   border-radius: 20px;
@@ -52,8 +63,12 @@ body {
   cursor: pointer;
 }
 
+.yes-confirmation-button, .no-confirmation-button {
+  padding: 6px 10px;
+}
+
 .stop-playing-button {
-  background-color: #c1121f;
+  background-color: #ccd5ae;
   border: none;
   border-radius: 20px;
   font-size: 15px;

@@ -36,6 +36,7 @@ document.querySelector('.js-scissors-button')
     playGame('scissors');
   })
 
+//KEY-PRESSING SHORTCUTS
 document.body.addEventListener('keydown', (event) => {
   if (event.key === 'r') {
     playGame('rock');
@@ -43,6 +44,10 @@ document.body.addEventListener('keydown', (event) => {
     playGame('paper');
   } else if (event.key === 's') {
     playGame('scissors')
+  } else if (event.key === 'a') {
+    autoPlay();
+  } else if (event.key === 'Backspace') {
+    displayConfirmationMessage();
   }
 })
 
@@ -104,6 +109,29 @@ function updateScoreElement() {
     .innerHTML = `Wins: ${score.wins}, Losses: ${score.losses}, Ties: ${score.ties}`;
 }
 
+//SCORE RESET
+const resetBtnElem = document.querySelector('.js-reset-button');
+//confirmation message
+resetBtnElem.addEventListener('click', () => {
+  displayConfirmationMessage();
+});
+
+function displayConfirmationMessage() {
+  const confirmationMeassageElem = document.querySelector('.js-confirmation-message');
+  confirmationMeassageElem.innerHTML = `Are you sure you want to reset the score?
+    <button class="js-yes-confirm-btn yes-confirmation-button">Yes</button>
+    <button class="js-no-confirm-btn no-confirmation-button">No</button>`;
+  const yesConfirmBtnElem = document.querySelector('.js-yes-confirm-btn');
+  yesConfirmBtnElem.addEventListener('click', () => {
+    resetScore();
+    confirmationMeassageElem.innerHTML = '';
+  });
+  const noConfirmBtnElem = document.querySelector('.js-no-confirm-btn');
+  noConfirmBtnElem.addEventListener('click', () => {
+    confirmationMeassageElem.innerHTML = '';
+  })
+}
+  
 function resetScore() {
   score.wins = 0;
   score.losses = 0;
