@@ -17,7 +17,7 @@ const products = [
   {
     id: '45df554-dfsdf5-AD45-5646-ASDFADdfdf',
     image: 'images/products/kosista.jpeg',
-    name: 'Kočička pro vydrýska',
+    name: 'Kočička',
     rating: {
       stars: 5,
       count: 2222,
@@ -29,14 +29,14 @@ const products = [
     ]
   },
   {
-    id: 'id45-4545-ffdafs-45efsdf-ff4545'
+    id: 'id45-4545-ffdafs-45efsdf-ff4545',
     image: 'images/products/srdce.png', 
-    name: '<3',
+    name: 'Srdce',
     rating: {
       stars: 5,
       count: 453,
     },
-    priceCents: 0,
+    priceCents: 0
   },
   {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
