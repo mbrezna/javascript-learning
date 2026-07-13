@@ -29,16 +29,6 @@ const products = [
     ]
   },
   {
-    id: 'id45-4545-ffdafs-45efsdf-ff4545',
-    image: 'images/products/srdce.png', 
-    name: 'Srdce',
-    rating: {
-      stars: 5,
-      count: 453,
-    },
-    priceCents: 0
-  },
-  {
     id: "15b6fc6f-327a-4ec4-896f-486349e85a3d",
     image: "images/products/intermediate-composite-basketball.jpg",
     name: "Intermediate Size Basketball",
