@@ -55,3 +55,12 @@ export function removeFromCart(productId) {
 function saveToStorage() {
   localStorage.setItem('cart', JSON.stringify(cart));
 }
+
+export function calculateCartQuantity() {
+  //calculate number of items in the cart
+  let cartQuantity = 0;
+  cart.forEach((cartItem) => {
+    cartQuantity += cartItem.quantity;
+  });
+  return cartQuantity;
+}
